@@ -1,0 +1,41 @@
+PROCEDURE dot_product(v1, v2 : ARRAY_OF INTEGER[5], VAR ps_algo : INTEGER)
+VAR
+    ps : INTEGER := 0;
+BEGIN
+    WHILE (i < v1.length-1) DO
+        WHILE (j < v2.length-1) DO
+            ps := ps + (v1[i] * v2[i]);
+        END_WHILE
+    END_WHILE
+
+    ps_algo := ps;
+END
+
+FUNCTION dot_product(v1, v2 : ARRAY_OF INTEGER[5]) : INTEGER
+VAR
+    ps : INTEGER := 0;
+BEGIN
+    WHILE (i < v1.length -1) DO
+        WHILE (j < v2.length-1) DO
+            ps := ps + (v1[i] * v2[i]);
+        END_WHILE
+        i := i+1;
+        j := j+1
+    END_WHILE
+
+    RETURN ps ;
+END
+
+ALGORITHM orthogonal_vectors
+VAR
+    v1 : ARRAY_OF INTEGER [5] = {1 ,2 , 3, 4, 5}
+    v2 : ARRAY_OF INTEGER [5] = {1 ,2 , 3, 4, 5}
+    ps_algo : INTEGER := 0;
+BEGIN
+    dot_product(v1, v2, ps_algo);
+    IF (ps_algo = 0) THEN
+        Write('OK')
+    ELSE
+        Write('KO')
+    END_IF
+END
